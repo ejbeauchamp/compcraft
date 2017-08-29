@@ -1,5 +1,6 @@
 
-local ROOT = "/beaucraft"
+local ROOT = "/beaucraft/"
+local REPO = "ejbeauchamp/compcraft/master/"
 local FILES = {
     "test",
     "src/test"
@@ -15,5 +16,6 @@ end
 fs.makeDir(ROOT);
 
 for i, file in ipairs(FILES) do
-    print(file)
+    local getFile = "/openp/github get ".. REPO .. file .. " " .. ROOT .. file;
+    shell.run(getFile);
 end
