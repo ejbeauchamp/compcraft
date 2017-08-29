@@ -14,6 +14,6 @@ end
 -- Create the root directory
 fs.makeDir(ROOT);
 
-for file in FILES do
+for i, file in ipairs(FILES) do
     print(file)
 end
