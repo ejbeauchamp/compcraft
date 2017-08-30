@@ -1,4 +1,3 @@
-
 local ROOT = "/beaucraft/"
 local REPO = "ejbeauchamp/compcraft/master/"
 
@@ -13,8 +12,8 @@ local SRC_FILES = {
 };
 
 function getFile(sourceFile, destFile)
-    local getFile = "/openp/github get ".. REPO .. sourceFile .. ".lua " .. ROOT .. destFile;
-    shell.run(getFile);
+    local gitCommand = "/openp/github get ".. REPO .. sourceFile .. ".lua " .. ROOT .. destFile;
+    shell.run(gitCommand);
 end
 
 -- Delete existing directory
@@ -34,4 +33,3 @@ end
 for i, file in ipairs(SRC_FILES) do
     getFile(file, file..".lua")
 end
-
