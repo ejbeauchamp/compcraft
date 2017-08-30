@@ -14,20 +14,28 @@ function getFile(sourceFile, destFile)
     shell.run(gitCommand);
 end
 
--- Delete existing directory
-if fs.isDir(ROOT) then
-    fs.delete(ROOT);
+function buildRoot()
+    -- Delete existing directory
+    if fs.isDir(ROOT) then
+        fs.delete(ROOT);
+    end
+
+    -- Create the root directory
+    fs.makeDir(ROOT);
 end
 
--- Create the root directory
-fs.makeDir(ROOT);
+function getFiles()
+    -- Fetch all programs.  These will not end in '.lua'
+    for i, file in ipairs(PROGRAMS) do
+        getFile(file, file)
+    end
 
--- Fetch all programs.  These will not end in '.lua'
-for i, file in ipairs(PROGRAMS) do
-    getFile(file, file)
+    -- Fetch all src files. These are shared between programs
+    for i, file in ipairs(SRC_FILES) do
+        getFile(file, file..".lua")
+    end
 end
 
--- Fetch all src files. These are shared between programs
-for i, file in ipairs(SRC_FILES) do
-    getFile(file, file..".lua")
-end
+-- Run
+buildRoot();
+getFiles();
