@@ -12,6 +12,10 @@ local SRC_FILES = {
     "src/test"
 };
 
+function getFile(sourceFile, destFile)
+    local getFile = "/openp/github get ".. REPO .. sourceFile .. ".lua " .. ROOT .. destFile;
+    shell.run(getFile);
+end
 
 -- Delete existing directory
 if fs.isDir(ROOT) then
@@ -29,10 +33,5 @@ end
 -- Fetch all src files. These are shared between programs
 for i, file in ipairs(SRC_FILES) do
     getFile(file, file..".lua")
-end
-
-function getFile(sourceFile, destFile)
-    local getFile = "/openp/github get ".. REPO .. sourceFile .. ".lua " .. ROOT .. destFile;
-    shell.run(getFile);
 end
 
