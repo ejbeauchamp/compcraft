@@ -31,7 +31,7 @@ while turnCount < 4 do
     end
 
     -- Check if we are nearly done
-    if (distanceCount == targetLength - 1) and turnCount == 4 then
+    if (distanceCount == targetLength - 1) and turnCount == 3 then
       turtle.digUp();
       turtle.place();
       return;
