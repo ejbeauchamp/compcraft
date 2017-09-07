@@ -2,7 +2,8 @@ local ROOT = "/beaucraft/"
 local REPO = "ejbeauchamp/compcraft/master/"
 
 local PROGRAMS = {
-    "test"
+    "test",
+    "mine"
 };
 
 local SRC_FILES = {
