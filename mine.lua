@@ -1,12 +1,12 @@
 local args = { ... }
 
 if #args < 2 then
-  print("Usage: mine <radius> <clockwise:true|false>");
+  print("Usage: mine <radius> <turn:left|right>");
   return;
 end
 
 local targetLength = tonumber(args[1]);
-local turnLeft = args[2] == "true";
+local turnLeft = args[2] == "left";
 
 if turtle.getFuelLevel() < targetLength*4+50 then
   print("Not enough fuel!");
@@ -50,8 +50,12 @@ while turnCount < 4 do
 
   -- Turn!
   turnCount = turnCount + 1;
-  turtle.turnLeft();
-  print("left!");
-  
+  if turnLeft then
+    turtle.turnLeft();
+    print("left!");
+  else
+    turtle.turnLeft();
+    print("right!");
+  end
 end
 
