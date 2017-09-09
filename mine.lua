@@ -54,7 +54,7 @@ while turnCount < 4 do
     turtle.turnLeft();
     print("left!");
   else
-    turtle.turnLeft();
+    turtle.turnRight();
     print("right!");
   end
 end
